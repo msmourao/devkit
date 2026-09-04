@@ -1,31 +1,31 @@
-# polystack-devkit
+﻿# polystack-devkit
 
-Public **PolyStack DevKit** documentation, package metadata, and a nuget.org-only blank Aspire sample.
+Public **PolyStack DevKit** documentation, package metadata, and a nuget.org blank Aspire sample.
 
 Use this repository to learn the DevKit surface, export `*.polystack-scheme.json`, and start a new AppHost without the private Multicloud platform.
 
 | Artifact | Purpose |
 |----------|---------|
-| [`doc/`](./doc/) | **GitHub Pages** — React DevKit development guide (EN / PT-BR) |
-| [DevelopmentGuide.md](./DevelopmentGuide.md) | Short markdown summary + pointer to `doc/` |
-| [PACKAGE.md](./PACKAGE.md) | Short README embedded in `PolyStack.DevKit.*` NuGet packages |
-| [samples/blank](./samples/blank) | Minimal Aspire AppHost with local obfuscated `packages/` feed |
+| [`docs/`](./docs/) | **GitHub Pages** — Development Guide + Architecture (EN / PT-BR) |
+| [DevelopmentGuide.md](./DevelopmentGuide.md) | Short markdown summary + pointer to `docs/` |
+| [PACKAGE.md](./PACKAGE.md) | Short README embedded in DevKit NuGet packages |
+| [samples/blank](./samples/blank) | Minimal Aspire AppHost restored from nuget.org |
 | `packages/` | Optional staging folder for Trusted Publishing / release assets (gitignored binaries) |
 
 ## NuGet
 
-Current train: **`0.1.0-preview.4`** (obfuscated binaries)
+Current train: **`0.1.0-preview.6`** (obfuscated binaries)
 
 ```powershell
-dotnet add package PolyStack.DevKit.Aspire --version 0.1.0-preview.4
-dotnet add package PolyStack.DevKit.Sidecar --version 0.1.0-preview.4
-dotnet add package PolyStack.DevKit.Host --version 0.1.0-preview.4
-dotnet add package PolyStack.DevKit.Abstractions --version 0.1.0-preview.4
+dotnet add package PolyStack.Aspire.Hosting.Demo --version 0.1.0-preview.6
+dotnet add package PolyStack.Aspire.Hosting.Demo.SchemaExtraction --version 0.1.0-preview.6
+dotnet add package PolyStack.Aspire.Hosting.Demo.Host --version 0.1.0-preview.6
+dotnet add package PolyStack.Aspire.Hosting.Demo.Abstractions --version 0.1.0-preview.6
 ```
 
-## Quick start (blank sample)
+> Package IDs use the `PolyStack.Aspire.Hosting.Demo*` prefix because `Aspire.Hosting.*` is reserved on nuget.org. Assemblies still follow the Aspire hosting naming convention.
 
-The blank sample restores `PolyStack.*` from [`samples/blank/packages`](./samples/blank/packages) (local obfuscated feed).
+## Quick start (blank sample)
 
 ```powershell
 cd samples/blank
@@ -33,11 +33,20 @@ dotnet restore
 dotnet run --project PolyStackBlankSolutionSample.AppHost
 ```
 
-Then open the DevKit sidecar: [http://localhost:18889/](http://localhost:18889/)
+Then open the schema UI: [http://localhost:18889/](http://localhost:18889/)
 
 Register modules on the AppHost facade when you are ready; until then the catalog may show an empty state (expected for a blank host).
 
-## Sidecar
+## Docs site
+
+Open [`docs/`](./docs/) (or GitHub Pages). Tabs:
+
+- **Development Guide** — install, compose, export scheme
+- **Architecture** — conceptual module layout and scheme lifecycle
+
+Language: `?lang=en` / `?lang=pt`. Page: `?page=guide` / `?page=architecture`.
+
+## Schema UI
 
 - Local UI after AppHost `Build()`: **http://localhost:18889/**
 - Scheme file: architecture **metadata only** (no secrets, binaries, or live URLs)
@@ -45,4 +54,4 @@ Register modules on the AppHost facade when you are ready; until then the catalo
 
 ## Maintainers
 
-Pack and push from the private PolyStack monorepo (`scripts/publish-devkit.ps1`), or attach `.nupkg` files to a GitHub Release and use [`.github/workflows/publish.yml`](./.github/workflows/publish.yml) (Trusted Publishing). See [PUBLISH.md](./PUBLISH.md).
+Pack and push from the private PolyStack monorepo (`scripts/publish-devkit.ps1`), or attach `.nupkg` files to a GitHub Release and use Trusted Publishing. See [PUBLISH.md](./PUBLISH.md).

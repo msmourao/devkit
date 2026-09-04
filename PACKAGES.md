@@ -1,16 +1,18 @@
-# DevKit package list (nuget.org)
+﻿# DevKit package list (nuget.org)
 
-Current train: **`0.1.0-preview.4`**
+Current train: **`0.1.0-preview.6`**
 
 ## DevKit shell
 
 | Package | Role |
 |---------|------|
-| `PolyStack.DevKit.Abstractions` | Topology schema / validation / catalog types |
-| `PolyStack.DevKit.Host` | Local host wiring (InMemory broker) |
-| `PolyStack.DevKit.Aspire` | AppHost facade (`AsPolyStackDistributedApplicationBuilder`, scheme export, sidecar attach) |
-| `PolyStack.DevKit.Sidecar` | Read-only catalog UI on `:18889` (runnable `tools/` payload) |
-| `PolyStack.Architecture.Testing` | Architecture convention tests |
+| `PolyStack.Aspire.Hosting.Demo.Abstractions` | Topology schema / validation / catalog types |
+| `PolyStack.Aspire.Hosting.Demo.Host` | Local host wiring (InMemory broker, SQLite, Auth.None) |
+| `PolyStack.Aspire.Hosting.Demo` | AppHost facade (`AsPolyStackDistributedApplicationBuilder`, scheme export, schema UI attach) |
+| `PolyStack.Aspire.Hosting.Demo.SchemaExtraction` | Read-only catalog UI on `:18889` (runnable `tools/` payload) |
+| `PolyStack.Architecture.Testing` | Architecture convention tests (add from your `*.Tests` project) |
+
+> Assemblies remain named `Aspire.Hosting.PolyStackDemo*`. NuGet IDs use the `PolyStack.` vendor prefix because `Aspire.Hosting.*` is reserved on nuget.org.
 
 ## Application / presentation
 
@@ -60,4 +62,4 @@ Current train: **`0.1.0-preview.4`**
 
 ## Not in this feed (platform — private)
 
-`Host.BuildTimeSelection`, `MessageBroker.DynamicSelection`, `*.Aws`, `*.Azure`, `Settings.*`, `Aspire.MulticloudDevelopmentKit.*`, `ProjectGenerator`, `Deploy`, `Grpc.Codegen`, `Inventory.*`, cloud persistence adapters used by the full stack, etc.
+`Host.BuildTimeSelection`, Multicloud Aspire kits, cloud persistence/auth adapters, Settings.*, Inventory.*, Deploy, ProjectGenerator, etc.

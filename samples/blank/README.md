@@ -1,15 +1,13 @@
-# Blank Aspire sample (local DevKit feed)
+# Blank Aspire sample (nuget.org)
 
 Minimal PolyStack DevKit AppHost with **no ProjectReferences** to the private monorepo.
 
-## Packages (`0.1.0-preview.4`, obfuscated)
+## Packages (`0.1.0-preview.6`)
 
-Local feed: [`packages/`](packages/) (preferred via `NuGet.config`).
-
-- `PolyStack.DevKit.Aspire`
-- `PolyStack.DevKit.Sidecar`
-- transitive `PolyStack.*` DevKit runtime packages
-- `Aspire.Hosting.AppHost` `13.5.3` (from nuget.org)
+- `PolyStack.Aspire.Hosting.Demo`
+- `PolyStack.Aspire.Hosting.Demo.SchemaExtraction`
+- transitive `PolyStack.*` DevKit runtime packages (nuget.org)
+- `Aspire.Hosting.AppHost` `13.5.3`
 
 ## Run
 
@@ -20,10 +18,8 @@ dotnet run --project PolyStackBlankSolutionSample.AppHost
 
 Open **http://localhost:18889/** after the host starts.
 
-The AppHost already calls `AsPolyStackDistributedApplicationBuilder()` and `Build().Run()`. Add modules when you have Presentation + ApplicationBuilder types — see comments in `PolyStackBlankSolutionSample.AppHost/AppHost.cs` and the [Development Guide](../../doc/) ([markdown summary](../../DevelopmentGuide.md)).
+Until you register modules, the catalog may be empty — that is expected.
 
-## Notes
+## Docs
 
-- `Directory.Build.props` / `Directory.Packages.props` disable central package management so this sample stays portable.
-- `NuGet.config` maps `PolyStack.*` to `./packages` and everything else to nuget.org.
-- Generated `.polystack/` files appear after Build and are gitignored.
+See the [Development Guide + Architecture](../../docs/) ([markdown summary](../../DevelopmentGuide.md)).

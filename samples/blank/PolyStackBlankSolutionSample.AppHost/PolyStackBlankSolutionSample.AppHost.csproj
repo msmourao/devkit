@@ -12,8 +12,8 @@
   <ItemGroup>
     <PackageReference Include="Aspire.Hosting.AppHost" Version="13.5.3" />
     <!-- PolyStack DevKit — local ./packages (obfuscated) with nuget.org fallback for Aspire. -->
-    <PackageReference Include="PolyStack.DevKit.Aspire" Version="0.1.0-preview.4" />
-    <PackageReference Include="PolyStack.DevKit.Sidecar" Version="0.1.0-preview.4" />
+    <PackageReference Include="PolyStack.Aspire.Hosting.Demo" Version="0.1.0-preview.6" />
+    <PackageReference Include="PolyStack.Aspire.Hosting.Demo.SchemaExtraction" Version="0.1.0-preview.6" />
   </ItemGroup>
 
 </Project>

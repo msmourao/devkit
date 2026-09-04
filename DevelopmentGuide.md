@@ -1,15 +1,18 @@
-# PolyStack DevKit — Development Guide
+﻿# PolyStack DevKit — Development Guide
 
-> **HTML guide (GitHub Pages):** open [`/doc/`](./doc/) in this repository  
-> (built from the React app in `polystack-doc`).
+> **HTML docs (GitHub Pages):** open [`docs/`](./docs/) in this repository.
 
 Public, local-first guide for structuring PolyStack-shaped applications and exporting an architecture scheme.
 
-**Repository:** [github.com/getpolystack/polystack-devkit](https://github.com/getpolystack/polystack-devkit)  
-**Packages:** `0.1.0-preview.4` (obfuscated) on [nuget.org](https://www.nuget.org/packages/PolyStack.DevKit.Aspire)  
-**Blank sample:** local feed at [`samples/blank/packages`](./samples/blank/packages)
+**Repository:** [github.com/getpolystack/devkit](https://github.com/getpolystack/devkit)  
+**Packages:** `0.1.0-preview.6` (obfuscated) on [nuget.org](https://www.nuget.org/packages/PolyStack.Aspire.Hosting.Demo)  
+**Blank sample:** [`samples/blank`](./samples/blank)
 
-The bilingual interactive guide lives under **[`doc/`](./doc/)** (`?lang=en` / `?lang=pt`). Markdown sources are maintained in the `polystack-doc` React app (`content/guide.en.md`, `content/guide.pt.md`).
+The bilingual site under **[`docs/`](./docs/)** includes:
+
+- Development Guide (`?page=guide`)
+- Architecture overview (`?page=architecture`)
+- Language toggle (`?lang=en` / `?lang=pt`)
 
 ---
 
@@ -21,12 +24,12 @@ The bilingual interactive guide lives under **[`doc/`](./doc/)** (`?lang=en` / `
 cd samples/blank
 dotnet restore
 dotnet run --project PolyStackBlankSolutionSample.AppHost
-# sidecar: http://localhost:18889/
+# schema UI: http://localhost:18889/
 ```
 
 ```powershell
-dotnet add package PolyStack.DevKit.Aspire --version 0.1.0-preview.4
-dotnet add package PolyStack.DevKit.Sidecar --version 0.1.0-preview.4
+dotnet add package PolyStack.Aspire.Hosting.Demo --version 0.1.0-preview.6
+dotnet add package PolyStack.Aspire.Hosting.Demo.SchemaExtraction --version 0.1.0-preview.6
 ```
 
 ### Compose modules
@@ -53,7 +56,7 @@ poly.Build().Run();
 cd samples/blank
 dotnet restore
 dotnet run --project PolyStackBlankSolutionSample.AppHost
-# sidecar: http://localhost:18889/
+# UI de scheme: http://localhost:18889/
 ```
 
 ### Compor módulos
@@ -72,4 +75,4 @@ poly.Build().Run();
 
 ---
 
-For the full bilingual guide with tables and checklists, use the Pages site in [`doc/`](./doc/).
+For the full bilingual guide and architecture overview, use the Pages site in [`docs/`](./docs/).
